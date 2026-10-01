@@ -206,7 +206,7 @@ function Portfolio() {
         </section>
 
         <section id="work" className="mx-auto max-w-7xl scroll-mt-24 px-6 pb-24 md:px-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">{repositories.map(repo => <a key={repo.name} href="https://github.com" target="_blank" rel="noreferrer" className="group block rounded-lg bg-surface p-8 transition-transform duration-200 hover:-translate-y-1">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">{repositories.map(repo => <Link key={repo.name} to="/work" hash={repo.anchor} className="group block rounded-lg bg-surface p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-4 flex items-center justify-between"><span className="label font-semibold text-primary">{repo.name}</span><ExternalLink size={19} className="text-outline transition-colors group-hover:text-primary" /></div><h3 className="mb-2 font-headline text-xl font-bold">{repo.title}</h3><p className="mb-6 text-sm leading-relaxed text-surface-variant">{repo.body}</p><div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-label text-xs text-outline"><span className="flex items-center"><span className={`mr-1.5 h-2 w-2 rounded-full ${repo.color}`} />{repo.language}</span><span>{repo.stars}</span><span>{repo.status}</span></div>
           </a>)}</div>
         </section>
