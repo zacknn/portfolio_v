@@ -23,6 +23,14 @@
   --color-tertiary-container: var(--tertiary-container);
   --color-outline: var(--outline);
   --color-outline-subtle: var(--outline-subtle);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-foreground: var(--inverse-foreground);
+  --color-inverse-muted: var(--inverse-muted);
+  --color-code-keyword: var(--code-keyword);
+  --color-code-comment: var(--code-comment);
+  --color-code-accent: var(--code-accent);
+  --color-error: var(--error);
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --shadow-soft: 0 12px 40px oklch(0.2 0.01 270 / 0.04);
   --shadow-card: 0 4px 24px oklch(0 0 0 / 0.02);
 }
