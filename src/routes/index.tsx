@@ -213,7 +213,7 @@ function Portfolio() {
       </main>
 
       <footer id="inquiries" className="bg-surface-low">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:px-12"><div className="space-y-2"><span className="block font-headline text-xl font-bold italic">Zakary / Zaknx</span><p className="max-w-md text-sm text-surface-variant">© 2024 Zakary (Zaknx). Archival Folio. Designed with editorial rigor and algorithmic care.</p></div><nav className="flex flex-wrap items-center gap-x-6 gap-y-3">{["C_libery", "MachineLearning", "studyFlow", "simulations-", "Terminal Protocol", "System Status"].map(item => <a key={item} className="nav-link" href="#work">{item}</a>)}</nav></div>
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:px-12"><div className="space-y-2"><span className="block font-headline text-xl font-bold italic">Zakary / Zaknx</span><p className="max-w-md text-sm text-surface-variant">© 2024 Zakary (Zaknx). Archival Folio. Designed with editorial rigor and algorithmic care.</p></div><nav className="flex flex-wrap items-center gap-x-6 gap-y-3">{([["C_libery", "project-c-lib"], ["MachineLearning", "project-ml"], ["studyFlow", "project-studyflow"], ["simulations-", "project-simulations"], ["Terminal Protocol", "project-c-lib"], ["System Status", "project-studyflow"]] as const).map(([item, anchor]) => <Link key={item} className="nav-link" to="/work" hash={anchor}>{item}</Link>)}</nav></div>
       </footer>
     </div>
   );
