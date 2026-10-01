@@ -116,7 +116,7 @@ function Portfolio() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
           <a href="#bio" className="font-headline text-lg font-bold">Zakary / Zaknx</a>
           <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex">
-            <a className="nav-link" href="#work">Selected Work</a>
+            <Link to="/work" className="nav-link">Selected Work</Link>
             <a className="nav-link" href="#engineering">Engineering</a>
             <a className="nav-link active" href="#bio">Curator Bio</a>
             <a className="nav-link" href="#inquiries">Inquiries</a>
