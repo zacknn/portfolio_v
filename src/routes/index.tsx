@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowDown,
   Code2,
@@ -62,6 +62,7 @@ const repositories = [
     stars: "★ 840+",
     status: "MIT License",
     color: "bg-primary",
+    anchor: "project-c-lib",
   },
   {
     name: "StudyFlow",
@@ -71,6 +72,7 @@ const repositories = [
     stars: "★ 1.2k+",
     status: "Active Release",
     color: "bg-tertiary",
+    anchor: "project-studyflow",
   },
   {
     name: "simulations-",
@@ -80,6 +82,7 @@ const repositories = [
     stars: "★ 620+",
     status: "Archival",
     color: "bg-secondary",
+    anchor: "project-simulations",
   },
 ];
 
@@ -116,7 +119,7 @@ function Portfolio() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
           <a href="#bio" className="font-headline text-lg font-bold">Zakary / Zaknx</a>
           <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex">
-            <a className="nav-link" href="#work">Selected Work</a>
+            <Link to="/work" className="nav-link">Selected Work</Link>
             <a className="nav-link" href="#engineering">Engineering</a>
             <a className="nav-link active" href="#bio">Curator Bio</a>
             <a className="nav-link" href="#inquiries">Inquiries</a>
@@ -206,14 +209,14 @@ function Portfolio() {
         </section>
 
         <section id="work" className="mx-auto max-w-7xl scroll-mt-24 px-6 pb-24 md:px-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">{repositories.map(repo => <a key={repo.name} href="https://github.com" target="_blank" rel="noreferrer" className="group block rounded-lg bg-surface p-8 transition-transform duration-200 hover:-translate-y-1">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">{repositories.map(repo => <Link key={repo.name} to="/work" hash={repo.anchor} className="group block rounded-lg bg-surface p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-4 flex items-center justify-between"><span className="label font-semibold text-primary">{repo.name}</span><ExternalLink size={19} className="text-outline transition-colors group-hover:text-primary" /></div><h3 className="mb-2 font-headline text-xl font-bold">{repo.title}</h3><p className="mb-6 text-sm leading-relaxed text-surface-variant">{repo.body}</p><div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-label text-xs text-outline"><span className="flex items-center"><span className={`mr-1.5 h-2 w-2 rounded-full ${repo.color}`} />{repo.language}</span><span>{repo.stars}</span><span>{repo.status}</span></div>
-          </a>)}</div>
+          </Link>)}</div>
         </section>
       </main>
 
       <footer id="inquiries" className="bg-surface-low">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:px-12"><div className="space-y-2"><span className="block font-headline text-xl font-bold italic">Zakary / Zaknx</span><p className="max-w-md text-sm text-surface-variant">© 2024 Zakary (Zaknx). Archival Folio. Designed with editorial rigor and algorithmic care.</p></div><nav className="flex flex-wrap items-center gap-x-6 gap-y-3">{["C_libery", "MachineLearning", "studyFlow", "simulations-", "Terminal Protocol", "System Status"].map(item => <a key={item} className="nav-link" href="#work">{item}</a>)}</nav></div>
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:px-12"><div className="space-y-2"><span className="block font-headline text-xl font-bold italic">Zakary / Zaknx</span><p className="max-w-md text-sm text-surface-variant">© 2024 Zakary (Zaknx). Archival Folio. Designed with editorial rigor and algorithmic care.</p></div><nav className="flex flex-wrap items-center gap-x-6 gap-y-3">{([["C_libery", "project-c-lib"], ["MachineLearning", "project-ml"], ["studyFlow", "project-studyflow"], ["simulations-", "project-simulations"], ["Terminal Protocol", "project-c-lib"], ["System Status", "project-studyflow"]] as const).map(([item, anchor]) => <Link key={item} className="nav-link" to="/work" hash={anchor}>{item}</Link>)}</nav></div>
       </footer>
     </div>
   );
