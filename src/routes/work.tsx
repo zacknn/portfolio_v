@@ -181,13 +181,13 @@ function WorkFolio() {
             <Link to="/work" className="nav-link active">
               Selected Work
             </Link>
-            <Link to="/" hash="engineering" className="nav-link">
+            <Link to="/engineering" className="nav-link">
               Engineering
             </Link>
             <Link to="/" hash="bio" className="nav-link">
               Curator Bio
             </Link>
-            <Link to="/" hash="inquiries" className="nav-link">
+            <Link to="/inquiries" className="nav-link">
               Inquiries
             </Link>
           </nav>

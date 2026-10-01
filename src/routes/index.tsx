@@ -120,9 +120,9 @@ function Portfolio() {
           <a href="#bio" className="font-headline text-lg font-bold">Zakary / Zaknx</a>
           <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex">
             <Link to="/work" className="nav-link">Selected Work</Link>
-            <a className="nav-link" href="#engineering">Engineering</a>
+            <Link className="nav-link" to="/engineering">Engineering</Link>
             <a className="nav-link active" href="#bio">Curator Bio</a>
-            <a className="nav-link" href="#inquiries">Inquiries</a>
+            <Link className="nav-link" to="/inquiries">Inquiries</Link>
           </nav>
           <div className="flex items-center gap-5">
             <span className="hidden items-center rounded-full bg-surface-high px-3 py-1.5 font-label text-xs font-semibold uppercase text-tertiary lg:inline-flex">

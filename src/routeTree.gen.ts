@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EngineeringRouteImport } from './routes/engineering'
+import { Route as InquiriesRouteImport } from './routes/inquiries'
 import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngineeringRoute = EngineeringRouteImport.update({
+  id: '/engineering',
+  path: '/engineering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InquiriesRoute = InquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkRoute = WorkRouteImport.update({
@@ -25,27 +37,35 @@ const WorkRoute = WorkRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/engineering': typeof EngineeringRoute
+  '/inquiries': typeof InquiriesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/engineering': typeof EngineeringRoute
+  '/inquiries': typeof InquiriesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/engineering': typeof EngineeringRoute
+  '/inquiries': typeof InquiriesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/work'
+  fullPaths: '/' | '/engineering' | '/inquiries' | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/work'
-  id: '__root__' | '/' | '/work'
+  to: '/' | '/engineering' | '/inquiries' | '/work'
+  id: '__root__' | '/' | '/engineering' | '/inquiries' | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EngineeringRoute: typeof EngineeringRoute
+  InquiriesRoute: typeof InquiriesRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/engineering': {
+      id: '/engineering'
+      path: '/engineering'
+      fullPath: '/engineering'
+      preLoaderRoute: typeof EngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inquiries': {
+      id: '/inquiries'
+      path: '/inquiries'
+      fullPath: '/inquiries'
+      preLoaderRoute: typeof InquiriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EngineeringRoute: EngineeringRoute,
+  InquiriesRoute: InquiriesRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
